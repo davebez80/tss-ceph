@@ -1,0 +1,26 @@
+service_type: rgw
+service_id: tss
+spec:
+  rgw_realm: us-west-tss
+  rgw_zonegroup: tss-us-west
+  rgw_zone: tss-bur
+  rgw_frontend_port: 8001
+placement:
+  hosts:
+    - tss-bur-ceph001
+    - tss-bur-ceph002
+    - tss-bur-ceph003
+---
+service_type: rgw
+service_id: chroma
+spec:
+  rgw_realm: us-west-chroma
+  rgw_zonegroup: chroma-us-west
+  rgw_zone: chroma-bur
+  rgw_frontend_port: 8002
+placement:
+  hosts:
+    - tss-bur-ceph001
+    - tss-bur-ceph002
+    - tss-bur-ceph003
+
