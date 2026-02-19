@@ -4,7 +4,7 @@ spec:
   rgw_realm: us-west-tss
   rgw_zonegroup: tss-us-west
   rgw_zone: tss-bur
-  rgw_frontend_port: 8001
+  rgw_frontend_port: 80
 placement:
   hosts:
     - tss-bur-ceph001
@@ -17,7 +17,20 @@ spec:
   rgw_realm: us-west-chroma
   rgw_zonegroup: chroma-us-west
   rgw_zone: chroma-bur
-  rgw_frontend_port: 8002
+  rgw_frontend_port: 81
+placement:
+  hosts:
+    - tss-bur-ceph001
+    - tss-bur-ceph002
+    - tss-bur-ceph003
+---
+service_type: rgw
+service_id: trafik
+spec:
+  rgw_realm: us-west-trafik
+  rgw_zonegroup: trafik-us-west
+  rgw_zone: trafik-bur
+  rgw_frontend_port: 443
 placement:
   hosts:
     - tss-bur-ceph001
