@@ -1,0 +1,18 @@
+service_type: ingress
+service_id: rgw
+placement:
+  count: 2                  # or label:lb_hosts / explicit hosts
+spec:
+  backend_service: rgw.tss
+  virtual_ip: 10.10.50.30/24   # your VIP + subnet
+  frontend_port: 443
+  monitor_port: 1967
+  virtual_interface: eno1np0 # adjust to your interface
+  ssl_cert: |
+    -----BEGIN CERTIFICATE-----
+    ... paste fullchain.pem ...
+    -----END CERTIFICATE-----
+  ssl_key: |
+    -----BEGIN PRIVATE KEY-----
+    ... paste privkey.pem ...
+    -----END PRIVATE KEY-----
